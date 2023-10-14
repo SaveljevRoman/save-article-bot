@@ -1,12 +1,17 @@
 package main
 
 import (
+	"bot/clients/telegram"
 	"flag"
 	"log"
 )
 
+const (
+	tgBotHost = "api.telegram.org"
+)
+
 func main() {
-	token := mustToken()
+	tgClient := telegram.NewClient(tgBotHost, mustToken())
 }
 
 func mustToken() string {
