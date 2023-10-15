@@ -20,7 +20,7 @@ const (
 	defaultPerm = 0774
 )
 
-func NewStorage(basePath string) Storage {
+func New(basePath string) Storage {
 	return Storage{basePath: basePath}
 }
 

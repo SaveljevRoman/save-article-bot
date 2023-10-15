@@ -18,7 +18,7 @@ const (
 func main() {
 	eventsProcessor := telegram.NewTgProcessor(
 		tgClient.NewClient(tgBotHost, mustToken()),
-		files.NewStorage(storagePath),
+		files.New(storagePath),
 	)
 
 	log.Printf("service start")
