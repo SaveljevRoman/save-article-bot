@@ -4,7 +4,7 @@ import (
 	"bot/clients/telegram"
 	"bot/events"
 	"bot/lib/e"
-	"bot/lib/storage"
+	"bot/storage"
 	"errors"
 )
 

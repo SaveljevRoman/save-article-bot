@@ -2,7 +2,7 @@ package telegram
 
 import (
 	"bot/lib/e"
-	"bot/lib/storage"
+	"bot/storage"
 	"errors"
 	"log"
 	"net/url"

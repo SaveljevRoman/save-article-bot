@@ -4,7 +4,7 @@ import (
 	tgClient "bot/clients/telegram"
 	"bot/consumer/event-consumer"
 	"bot/events/telegram"
-	"bot/lib/storage/files"
+	"bot/storage/files"
 	"flag"
 	"log"
 )

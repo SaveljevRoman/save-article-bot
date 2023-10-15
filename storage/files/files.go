@@ -2,7 +2,7 @@ package files
 
 import (
 	"bot/lib/e"
-	"bot/lib/storage"
+	"bot/storage"
 	"encoding/gob"
 	"errors"
 	"fmt"
