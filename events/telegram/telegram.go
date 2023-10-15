@@ -5,6 +5,7 @@ import (
 	"bot/events"
 	"bot/lib/e"
 	"bot/storage"
+	"context"
 	"errors"
 )
 
@@ -12,6 +13,7 @@ type TgProcessor struct {
 	tg      *telegram.Client
 	offset  int
 	storage storage.Storage
+	ctx     context.Context
 }
 
 type Meta struct {

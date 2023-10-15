@@ -44,7 +44,7 @@ func (tp *TgProcessor) savePage(chatID int, pageURL string, username string) (er
 		UserName: username,
 	}
 
-	isExist, err := tp.storage.IsExists(page)
+	isExist, err := tp.storage.IsExists(tp.ctx, page)
 	if err != nil {
 		return err
 	}
@@ -52,7 +52,7 @@ func (tp *TgProcessor) savePage(chatID int, pageURL string, username string) (er
 		return tp.tg.SendMessage(chatID, msgAlreadyExists)
 	}
 
-	if err := tp.storage.Save(page); err != nil {
+	if err := tp.storage.Save(tp.ctx, page); err != nil {
 		return err
 	}
 
@@ -66,7 +66,7 @@ func (tp *TgProcessor) savePage(chatID int, pageURL string, username string) (er
 func (tp *TgProcessor) sendRandom(chatID int, username string) (err error) {
 	defer func() { err = e.Wrap("can not command: can not send random", err) }()
 
-	page, err := tp.storage.PickRandom(username)
+	page, err := tp.storage.PickRandom(tp.ctx, username)
 	if err != nil && !errors.Is(err, storage.ErrNoSavedPages) {
 		return err
 	}
@@ -78,7 +78,7 @@ func (tp *TgProcessor) sendRandom(chatID int, username string) (err error) {
 		return err
 	}
 
-	return tp.storage.Remove(page)
+	return tp.storage.Remove(tp.ctx, page)
 }
 
 func (tp *TgProcessor) sendHelp(chatID int) error {
