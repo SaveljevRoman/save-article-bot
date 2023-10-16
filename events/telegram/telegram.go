@@ -30,6 +30,7 @@ func NewTgProcessor(client *telegram.Client, storage storage.Storage) *TgProcess
 	return &TgProcessor{
 		tg:      client,
 		storage: storage,
+		ctx:     context.TODO(),
 	}
 }
 
